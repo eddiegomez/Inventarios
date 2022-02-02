@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Expenses', 'pageSlug' => 'expenses', 'section' => 'transactions'])
+@extends('layouts.app', ['page' => 'Despesas', 'pageSlug' => 'expenses', 'section' => 'transactions'])
 
 @section('content')
     <div class="row">
@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Expenses</h4>
+                            <h4 class="card-title">Despesas</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('transactions.create', ['type' => 'expense']) }}" class="btn btn-sm btn-primary">Register Expense</a>
+                            <a href="{{ route('transactions.create', ['type' => 'expense']) }}" class="btn btn-sm btn-primary">Registar Despesa</a>
                         </div>
                     </div>
                 </div>
@@ -20,17 +20,17 @@
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
-                                <th scope="col">Date</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Method</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Reference</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Método</th>
+                                <th scope="col">Montante</th>
+                                <th scope="col">Referência</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
                                 @foreach ($transactions as $transaction)
                                     <tr>
-                                        <td> {{ date('d-m-y', strtotime($transaction->created_at)) }}</td>
+                                        <td> {{ Data('d-m-y', strtotime($transaction->created_at)) }}</td>
                                         <td> {{ $transaction->title }}</td>
                                         <td><a href="{{ route('methods.show', $transaction->method) }}">{{ $transaction->method->name }}</a></td>
                                         <td>{{ format_money($transaction->amount) }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Payments', 'pageSlug' => 'payments', 'section' => 'transactions'])
+@extends('layouts.app', ['page' => 'Pagamentos', 'pageSlug' => 'payments', 'section' => 'transactions'])
 
 @section('content')
     <div class="row">
@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Payments</h4>
+                            <h4 class="card-title">Pagamentos</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('transactions.create', ['type' => 'payment']) }}" class="btn btn-sm btn-primary">New Payment</a>
+                            <a href="{{ route('transactions.create', ['type' => 'payment']) }}" class="btn btn-sm btn-primary">Novo Pagamento</a>
                         </div>
                     </div>
                 </div>
@@ -20,12 +20,12 @@
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
-                                <th scope="col">Date</th>
-                                <th scope="col">Provider</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Method</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Reference</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Provedor</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Método</th>
+                                <th scope="col">Montante</th>
+                                <th scope="col">Referência</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>

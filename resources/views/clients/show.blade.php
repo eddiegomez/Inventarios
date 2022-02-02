@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Client Information', 'pageSlug' => 'clients', 'section' => 'clients'])
+@extends('layouts.app', ['page' => 'Informação do Cliente', 'pageSlug' => 'clients', 'section' => 'clients'])
 
 @section('content')
     @include('alerts.error')
@@ -6,20 +6,20 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Client Information</h4>
+                    <h4 class="card-title">Informação do Cliente</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Document</th>
-                            <th>Telephone</th>
+                            <th>Nome</th>
+                            <th>Documento</th>
+                            <th>Telefone</th>
                             <th>Email</th>
-                            <th>Balance</th>
-                            <th>Purchases</th>
-                            <th>Total Payment</th>
-                            <th>Last purchase</th>
+                            <th>Saldo</th>
+                            <th>Compras</th>
+                            <th>Total Pago</th>
+                            <th>Última Compra</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -54,10 +54,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Latest Transactions</h4>
+                            <h4 class="card-title">Última Transação</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('clients.transactions.add', $client) }}" class="btn btn-sm btn-primary">New Transaction</a>
+                            <a href="{{ route('clients.transactions.add', $client) }}" class="btn btn-sm btn-primary">Nova Transação</a>
                         </div>
                     </div>
                 </div>
@@ -65,9 +65,9 @@
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Date</th>
-                            <th>Method</th>
-                            <th>Amount</th>
+                            <th>Data</th>
+                            <th>Método</th>
+                            <th>Montante</th>
                         </thead>
                         <tbody>
                             @foreach ($client->transactions->reverse()->take(25) as $transaction)
@@ -89,14 +89,14 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Latest Purchases</h4>
+                            <h4 class="card-title">Últimas Compras</h4>
                         </div>
                         <div class="col-4 text-right">
                             <form method="post" action="{{ route('sales.store') }}">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="client_id" value="{{ $client->id }}">
-                                <button type="submit" class="btn btn-sm btn-primary">New Purchase</button>
+                                <button type="submit" class="btn btn-sm btn-primary">Nova Compra</button>
                             </form>
                         </div>
                     </div>
@@ -105,11 +105,11 @@
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Date</th>
-                            <th>products</th>
+                            <th>Data</th>
+                            <th>produtos</th>
                             <th>Stock</th>
-                            <th>Total Amount</th>
-                            <th>State</th>
+                            <th>Montante</th>
+                            <th>Estado</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -122,7 +122,7 @@
                                     <td>{{ format_money($sale->products->sum('total_amount')) }}</td>
                                     <td>{{ ($sale->finalized_at) ? 'FINISHED' : 'ON HOLD' }}</td>
                                     <td class="td-actions text-right">
-                                        <a href="{{ route('sales.show', $sale) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More Details">
+                                        <a href="{{ route('sales.show', $sale) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Detalhes">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </a>
                                     </td>

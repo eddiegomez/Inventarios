@@ -1,21 +1,21 @@
-@extends('layouts.app', ['page' => 'Category Information', 'pageSlug' => 'categories', 'section' => 'inventory'])
+@extends('layouts.app', ['page' => 'Informação da Categoria', 'pageSlug' => 'categories', 'section' => 'inventory'])
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Category Information</h4>
+                    <h4 class="card-title">Informação da Categoria</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>products</th>
-                            <th>Stocks</th>
-                            <th>Stocks Faulty</th>
-                            <th>Average Price</th>
+                            <th>Nome</th>
+                            <th>produtos</th>
+                            <th>Stock</th>
+                            <th>Stock Defeituoso</th>
+                            <th>Preço Médio</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -42,13 +42,13 @@
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Nome</th>
                             <th>Stock</th>
-                            <th>Defective Stock</th>
-                            <th>Base price</th>
-                            <th>Average Price</th>
-                            <th>Total sales</th>
-                            <th>Income Produced</th>
+                            <th>Stock Defeituoso</th>
+                            <th>Melhor Preço</th>
+                            <th>Preço Médio</th>
+                            <th>Total de Vendas</th>
+                            <th>Renda Produzida</th>
                             <th></th>
                         </thead>
                         <tbody>

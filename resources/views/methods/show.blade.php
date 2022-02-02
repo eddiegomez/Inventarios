@@ -1,24 +1,24 @@
-@extends('layouts.app', ['page' => 'Method Information', 'pageSlug' => 'methods', 'section' => 'methods'])
+@extends('layouts.app', ['page' => 'Informação do Método', 'pageSlug' => 'methods', 'section' => 'methods'])
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Method information</h4>
+                    <h4 class="card-title">Informação do Método</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Transactions</th>
-                            <th>Daily Balance</th>
-                            <th>Weekly Balance</th>
-                            <th>Quarterly Balance</th>
-                            <th>Monthly Balance</th>
-                            <th>Annual balance</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Transações</th>
+                            <th>Saldo Diário</th>
+                            <th>Saldo Semanal</th>
+                            <th>Saldo Trimestral</th>
+                            <th>Saldo Mensal</th>
+                            <th>Saldo Anual</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -48,11 +48,11 @@
                     <table class="table">
                         <thead>
                             <th>ID</th>
-                            <th>Date</th>
-                            <th>Type</th>
-                            <th>Title</th>
-                            <th>Amount</th>
-                            <th>Reference</th>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Título</th>
+                            <th>Montante</th>
+                            <th>Ref.</th>
                         </thead>
                         <tbody>
                             @foreach($transactions as $transaction)
@@ -65,19 +65,19 @@
                                     <td>{{ $transaction->reference }}</td>
                                     <td class="td-actions text-right">
                                         @if ($transaction->sale_id)
-                                            <a href="{{ route('sales.show', $transaction->sale) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More Details">
+                                            <a href="{{ route('sales.show', $transaction->sale) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Detalhes">
                                                 <i class="tim-icons icon-zoom-split"></i>
                                             </a>
                                         @elseif ($transaction->transfer_id)
 
                                         @else
-                                            <a href="{{ route('transactions.edit', $transaction) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Edit Transaction">
+                                            <a href="{{ route('transactions.edit', $transaction) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Editar">
                                                 <i class="tim-icons icon-pencil"></i>
                                             </a>
                                             <form action="{{ route('transactions.destroy', $transaction) }}" method="post" class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Delete Transaction" onclick="confirm('Are you sure you want to delete this transaction? There will be no record left.') ? this.parentElement.submit() : ''">
+                                                <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Remover" onclick="confirm('Tem certeza que pretende remover este método? Os registos de Pagamentos serão removidos.') ? this.parentElement.submit() : ''">
                                                     <i class="tim-icons icon-simple-remove"></i>
                                                 </button>
                                             </form>
